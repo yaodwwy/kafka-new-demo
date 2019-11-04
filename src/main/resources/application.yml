@@ -1,0 +1,24 @@
+spring:
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    consumer:
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      properties.spring.json.trusted.packages: '*'
+#    listener:
+#      missing-topics-fatal: false
+  cloud:
+    zookeeper:
+      connect-string: host.docker.internal:2181
+      discovery:
+        instance-host: host.docker.internal
+        root: /dev/services
+    bus:
+      destination: bus-dev
+
